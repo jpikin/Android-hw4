@@ -5,4 +5,7 @@
     <string name="inputYourName">Имя</string>
     <string name="phone">Телефон</string>
     <string name="receive_notifications_text">Получать уведомления</string>
+    <string name="female">Ж</string>
+    <string name="male">М</string>
+    <string name="gender">Пол</string>
 </resources>

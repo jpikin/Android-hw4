@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        android:text="Пол"
+        android:text="@string/gender"
         app:layout_constraintTop_toBottomOf="@id/phone_input_layout"
         app:layout_constraintStart_toStartOf="@id/phone_input_layout"
         android:layout_marginTop="10dp"/>
@@ -79,13 +79,13 @@
         android:id="@+id/male"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="М"/>
+        android:text="@string/male"/>
 
     <RadioButton
         android:id="@+id/female"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ж"/>
+        android:text="@string/female"/>
     </RadioGroup>
 
 
@@ -108,15 +108,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_gravity="center"
-            tools:ignore="RtlHardcoded" />
+            />
 
         <Switch
             android:id="@+id/receive_notifications_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            tools:ignore="TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
