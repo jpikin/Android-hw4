@@ -6,12 +6,28 @@ import android.text.TextWatcher
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isNotEmpty
 import com.example.hw4.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
+
+    val button = findViewById<Button>(R.id.saveButton)
+    var nameFlag: Boolean by Delegates.observable(false) { _, _, new ->
+        updateButtonState(button)
+    }
+    var phoneFlag: Boolean by Delegates.observable(false) { _, _, new ->
+        updateButtonState(button)
+    }
+    var radioFlag: Boolean by Delegates.observable(false) { _, _, new ->
+        updateButtonState(button)
+    }
+    var switchFlag: Boolean by Delegates.observable(false) { _, _, new ->
+        updateButtonState(button)
+    }
+    fun updateButtonState(button: Button){
+        button.isEnabled = nameFlag&&phoneFlag&&radioFlag&&switchFlag
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,23 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        println("program started")
-//        var  = false
-        var phoneFlag = false
-        var radioFlag = false
-        var switchFlag = false
-
-        var nameFlag: Boolean by Delegates.observable(false) { _, old, new ->
-            if (new != old) {
-                binding.saveButton.isEnabled = true
-
-            } else {
-                binding.saveButton.isEnabled = false
-
-            }
-        }
-
 
         val progressNum = (0..100).random()
 
@@ -68,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
         binding.editPhone.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -75,10 +75,15 @@ class MainActivity : AppCompatActivity() {
                 val text = s.toString()
                 if (text.isNotEmpty()) {
                     phoneFlag = true
-
                 }
             }
         })
+
+        fun updateButton(){
+            binding.saveButton.isEnabled = nameFlag&&phoneFlag&&switchFlag&&radioFlag
+        }
+
+        updateButtonState(button)
     }
 
     private fun toStr(str: Int): String {
