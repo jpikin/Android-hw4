@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">hw4</string>
+    <string name="avatarimage">avatarImage</string>
+    <string name="avatarImage">avatarImage</string>
+    <string name="inputYourName">Имя</string>
+    <string name="phone">Телефон</string>
+</resources>
