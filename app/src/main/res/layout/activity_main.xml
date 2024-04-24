@@ -9,31 +9,31 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:contentDescription="@string/avatarImage"
         android:id="@+id/avatarImage"
-        android:src="@drawable/avatar"
-        android:layout_marginTop="10dp"
         android:layout_width="120dp"
         android:layout_height="120dp"
-
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/avatarImage"
+        android:src="@drawable/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_input_layout"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/avatarImage"
-        app:counterEnabled="true"
-        app:counterMaxLength="40">
+        app:layout_constraintTop_toBottomOf="@id/avatarImage">
+
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:id="@+id/edit_text"
-            android:layout_width="250dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="@string/inputYourName"
             android:inputType="text"/>
@@ -47,68 +47,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_input_layout"
-        app:prefixText="+7"
-        >
+        app:prefixText="+7">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_phone"
-            android:background="@color/purple"
-            android:layout_width="250dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:background="@color/purple"
             android:hint="@string/phone"
             android:inputType="number"
-            app:hintTextAppearance="@style/TextAppearance.AppCompat.Large"/>
+            app:hintTextAppearance="@style/TextAppearance.AppCompat.Large" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/title_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
+        android:layout_marginTop="10dp"
         android:text="@string/gender"
-        app:layout_constraintTop_toBottomOf="@id/phone_input_layout"
         app:layout_constraintStart_toStartOf="@id/phone_input_layout"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/phone_input_layout"
+        tools:ignore="MissingConstraints" />
 
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/title_radio_group"
-        app:layout_constraintStart_toStartOf="@+id/title_radio_group">
-    <RadioButton
-        android:id="@+id/male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/male"/>
+        app:layout_constraintStart_toStartOf="@+id/title_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/title_radio_group">
 
-    <RadioButton
-        android:id="@+id/female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/female"/>
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female" />
     </RadioGroup>
-
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/receive_notifications_layout"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group"
         app:layout_constraintStart_toStartOf="@+id/radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
         tools:ignore="UseSwitchCompatOrMaterialXml">
 
         <TextView
             android:id="@+id/receive_notifications_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/receive_notifications_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_gravity="center"
-            />
+            android:text="@string/receive_notifications_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
             android:id="@+id/receive_notifications_switch"
@@ -120,5 +118,77 @@
             tools:ignore="TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/checkbox_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/phone_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/receive_notifications_layout">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_about_authorization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toToptOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_authorization"
+            app:layout_constraintBottom_toBottomOf="@+id/checkbox_about_authorization"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_about_authorization"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_about_authorization" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_about_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_about_authorization" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_news"
+            app:layout_constraintBottom_toBottomOf="@+id/checkbox_about_news"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_about_news"
+            app:layout_constraintTop_toTopOf="@+id/checkbox_about_news" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/points"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/phone_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_container" />
+
+    <TextView
+        android:id="@+id/progress_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/progress_points"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/phone_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_container" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/phone_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/points" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/save"
+        app:layout_constraintStart_toStartOf="@id/phone_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

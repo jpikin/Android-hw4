@@ -8,4 +8,9 @@
     <string name="female">Ж</string>
     <string name="male">М</string>
     <string name="gender">Пол</string>
+    <string name="about_authorization">Об авторизации на устройстве</string>
+    <string name="about_news">О новинках и предложениях</string>
+    <string name="points">Баллы</string>
+    <string name="progress_points">44/100</string>
+    <string name="save">Сохранить</string>
 </resources>
