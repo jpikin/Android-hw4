@@ -115,7 +115,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
+            android:checked="true"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -130,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toToptOf="parent"
+
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -176,12 +178,12 @@
         app:layout_constraintEnd_toEndOf="@id/phone_input_layout"
         app:layout_constraintTop_toBottomOf="@id/checkbox_container" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_bar"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/phone_input_layout"
-        app:layout_constraintTop_toBottomOf="@id/points" />
+        app:layout_constraintTop_toBottomOf="@id/points"/>
 
     <Button
         android:layout_width="350dp"
