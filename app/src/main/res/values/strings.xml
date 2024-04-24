@@ -4,4 +4,5 @@
     <string name="avatarImage">avatarImage</string>
     <string name="inputYourName">Имя</string>
     <string name="phone">Телефон</string>
+    <string name="receive_notifications_text">Получать уведомления</string>
 </resources>
