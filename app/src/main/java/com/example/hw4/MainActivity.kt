@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hw4.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 phoneFlag = text.isNotEmpty()
             }
         })
-        binding.radioGroup.setOnCheckedChangeListener {group, checkedId ->
+        binding.radioGroup.setOnCheckedChangeListener {_, checkedId ->
             val radioButton: RadioButton = findViewById(checkedId)
             radioFlag = radioButton.isChecked
         }
