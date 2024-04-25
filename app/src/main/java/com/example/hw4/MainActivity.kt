@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var button: Button
 
-
+    // Слушаем флаги, вызываем  проверку флагов
     private var nameFlag: Boolean by Delegates.observable(false) { _, _, _ ->
         updateButtonState()
     }
@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         updateButtonState()
     }
 
+    /**
+     * Проверка, что все флаги true
+     */
     private fun updateButtonState() {
         button.isEnabled = nameFlag && phoneFlag && switchFlag && radioFlag
     }
@@ -37,7 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         binding.progressPoints.text = toStr(progressNum)
         binding.progressBar.progress = progressNum
 
+        // Слушаем Чекбоксы и вызываем проверку флага
         binding.checkboxAboutNews.setOnCheckedChangeListener { _, isChecked ->
             newsFlag = isChecked
             switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
@@ -60,12 +63,14 @@ class MainActivity : AppCompatActivity() {
             switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
 
         }
+        // Слушаем переключатель Switch и вызываем проверку флага
         binding.receiveNotificationsSwitch.setOnCheckedChangeListener { _, isChecked ->
             switchCheck = isChecked
             binding.checkboxAboutNews.isEnabled = isChecked
             binding.checkboxAboutAuthorization.isEnabled = isChecked
             switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
         }
+        // Слушаем поле ввода имени
         binding.editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -74,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                 nameFlag = text.isNotEmpty() && text.length < 41
             }
         })
+        // Слушаем поле ввода телефона
         binding.editPhone.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
