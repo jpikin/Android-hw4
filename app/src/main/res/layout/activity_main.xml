@@ -21,11 +21,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_input_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:counterEnabled="true"
         app:counterMaxLength="40"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/avatarImage">
@@ -33,7 +34,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/inputYourName"
             android:inputType="text"/>
@@ -42,8 +43,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phone_input_layout"
         style="@style/Widget.Material3.TextInputLayout.FilledBox"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_input_layout"
@@ -51,7 +53,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_phone"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/purple"
             android:hint="@string/phone"
@@ -91,8 +93,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/receive_notifications_layout"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@+id/radio_group"
         app:layout_constraintTop_toBottomOf="@+id/radio_group"
@@ -179,15 +182,17 @@
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_bar"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintStart_toStartOf="@id/phone_input_layout"
         app:layout_constraintTop_toBottomOf="@id/points"/>
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="10dp"
         android:text="@string/save"
         app:layout_constraintStart_toStartOf="@id/phone_input_layout"
