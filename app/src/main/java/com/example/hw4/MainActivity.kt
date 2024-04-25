@@ -54,18 +54,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.checkboxAboutNews.setOnCheckedChangeListener { _, isChecked ->
             newsFlag = isChecked
-            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchFlag)
+            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
         }
         binding.checkboxAboutAuthorization.setOnCheckedChangeListener { _, isChecked ->
             authorFlag = isChecked
-            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchFlag)
+            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
 
         }
         binding.receiveNotificationsSwitch.setOnCheckedChangeListener { _, isChecked ->
             switchCheck = isChecked
             binding.checkboxAboutNews.isEnabled = isChecked
             binding.checkboxAboutAuthorization.isEnabled = isChecked
-            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchFlag)
+            switchFlag = setUpSwitchFlag(newsFlag, authorFlag, switchCheck)
         }
         binding.editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -93,11 +93,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+      Метод возвращает статус флага Switch
+    */
     private fun setUpSwitchFlag(newsFlag: Boolean,
                           authorFlag: Boolean,
                           switchCheck: Boolean
                           ) : Boolean {
-
         return if(!switchCheck)
             true
         else if (authorFlag || newsFlag)
