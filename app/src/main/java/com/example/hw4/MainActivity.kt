@@ -48,8 +48,13 @@ class MainActivity : AppCompatActivity() {
         var newsFlag = false
         var authorFlag = false
         var switchCheck = true
+
         button = findViewById(R.id.saveButton)
+
         binding.nameInputLayout.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+
+        // Устанавливаем значение в ProgressBar и в строковое отображение
+        // с помощью рандома, по условию задачи.
         binding.progressPoints.text = toStr(progressNum)
         binding.progressBar.progress = progressNum
 
@@ -88,11 +93,14 @@ class MainActivity : AppCompatActivity() {
                 phoneFlag = text.isNotEmpty()
             }
         })
+        // Слушаем RadioGroup
         binding.radioGroup.setOnCheckedChangeListener {_, checkedId ->
             val radioButton: RadioButton = findViewById(checkedId)
             radioFlag = radioButton.isChecked
         }
         updateButtonState()
+
+        // Слушаем нажатие кнопки
         binding.saveButton.setOnClickListener {
             Toast.makeText(this, "Данные сохранены", Toast.LENGTH_SHORT).show()
         }
